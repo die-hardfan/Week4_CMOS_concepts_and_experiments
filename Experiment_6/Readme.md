@@ -239,13 +239,37 @@ VTC curve gives switching threshold and noise margins. Transient analysis gives 
 
 ![compare_pmos](/images/compare_pmos.png)
 
-Clearly, as the width of weak PMOS has a lower switching threshold that strong PMOS. Also, the VTC curve seems to have shifted left. 
+Clearly, the weak PMOS has a lower switching threshold than the strong PMOS.
+
+- At the switching threshold voltage (VM), both transistors (PMOS and NMOS) are conducting the same current magnitude (|I<sub>p</sub>| = I<sub>n</sub>).
+This balance point determines where the VTC “flips” from high to low.
+- If the PMOS is stronger, it can pull the output up more effectively. Therefore, to reach that balance point where both currents are equal, the input voltage must be smaller (to turn the NMOS on more and counter the strong PMOS).
+- Simply, cuz PMOS is wider, it supplies more current from the power supply, and NMOS is narrower, so it takes longer to discharge the capacitor. So the logic HIGH state of C<sub>load</sub> is maintained for long (since NMOS discharges slowly but PMOS keeps charging the capacitor). Thus, the VTC curve seems right-shifted for strong PMOS.
+- Similarly, for a strong NMOS and weak PMOS, the logic LOW state is held for longer, and PMOS charges slowly, so the VTC curve seems left-shifted.
 
 ![compare_pmos_trans](/images/compare_pmos_trans.png)
 
 For a strong PMOS and weak NMOS, the rise delay is low and fall delay is high. Because, wider PMOS, more current, charges the capacitance fast. But NMOS is narrow, less current, so discharge rate is slow, hence fall delay is high. The exact opposite happens for weak PMOS and strong NMOS.
 
+For noise margins, the values are as follows:
 
+- Strong PMOS, weak NMOS:
+  	- V<sub>IL</sub> = 0.90 V
+  	- V<sub>IH</sub> = 1.12 V
+  	- V<sub>OL</sub> = 0.11 V
+  	- V<sub>OH</sub> = 1.71 V
+  	- NM<sub>L</sub> = 0.90 - 0.11 = 0.79 V
+  	- NM<sub>H</sub> = 1.71 - 1.12 = 0.59 V
+  	  
+- Weak PMOS, strong NMOS:
+  	- V<sub>IL</sub> = 0.57 V
+  	- V<sub>IH</sub> = 0.72 V
+  	- V<sub>OL</sub> = 0.05 V
+  	- V<sub>OH</sub> = 1.70 V
+  	- NM<sub>L</sub> = 0.72 - 0.05 = 0.67 V
+  	- NM<sub>H</sub> = 1.70 - 0.72 = 0.98 V
+
+Strong PMOS, weak NMOS has a right shifted VTC curve, so V<sub>IL</sub> increases, thus NM<sub>L</sub> increases, given V<sub>OL</sub> is almost constant. Similarly, for strong NMOS and weak PMOS, the VTC curve shifts left, so V<sub>IH</sub> decreases, which is why NM<sub>H</sub> seems to increase if other values are almost constant. This can be applied for other two case as well - why high noise margin decreases as Wp increases and why low noise margin increases as Wn increases.
 
 ## Conclusions
 This experiment demonstrated how variations in device dimensions during fabrication impact the electrical behavior of a CMOS inverter. By altering the transistor widths (Wp and Wn), we observed shifts in the VTC curve, switching threshold, and propagation delays. When PMOS is strong (wide) and NMOS is weak (narrow), the switching threshold shifts lower, rise delay decreases, and fall delay increases. Conversely, when NMOS is strong and PMOS is weak, the switching threshold shifts higher, rise delay increases, and fall delay decreases. These results show that device mismatches cause asymmetry in inverter performance, affecting both speed and noise margins. Hence, maintaining precise control over fabrication parameters such as transistor width, length, and oxide thickness is essential for achieving consistent and predictable circuit behavior across all chips.
