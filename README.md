@@ -5,8 +5,10 @@
 1. Install Ngpsice for circuit simulation. The installation guide can be found here (add a link here).
 2. All the netlists/code required for the experiments can be found in this GitHub [repo](https://github.com/kunalg123/sky130CircuitDesignWorkshop/).
 3. Git clone the repo into a folder called `week4_files`.
-   //gitclone image to be added here
-4. The setup for this week's experiments is now complete.
+   
+   ![gitclone](/images/gitclone.png)
+   
+5. The setup for this week's experiments is now complete.
 ---
 
 ## Why this task matters:
@@ -29,6 +31,7 @@ margins, and variation impacts.
 - In short, these simulations enable us to analyse the device/circuit-level characteristics of a logic gate, which helps in understanding which variation of the cell needs to be selected (out of many, with the same function but different delays, area, and power that are present in the standard cell library) to get the most optimized circuit.
 - These simulations are also integral in device-level characterization (power, area, delay) of the cell itself.
 - Typically, based on our timing requirement, we select a cell based on its cell-delay table. SPICE simulations are used to obtain these tables.
+
   //add cell delay table image here
 
 
