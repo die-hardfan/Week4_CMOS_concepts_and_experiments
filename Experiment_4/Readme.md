@@ -64,14 +64,14 @@ Note that operating point analysis is not included here since `.op` is not there
 <details>
   <summary>Simulation log</summary>
 
-//trans_inv_sim
+![trans_inv_sim](/images/trans_inv_sim.png)
 
 </details>
 
 
 ## Observations and Analysis
 
-//trans_inv
+![trans_inv](/images/trans_inv.png)
 
 The orange boxes represent the interested region where rise and fall delay is to be calculated. when **output** goes from 0-->1, we calculate rise delay as: point 1 - point 2, and when **output** goes from 1-->0, 
 we calculate fall delay as: point 3 - point 4. 
