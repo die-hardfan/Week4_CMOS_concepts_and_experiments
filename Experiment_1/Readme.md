@@ -3,7 +3,9 @@
 ## Introduction and Background
 
 MOSFET is the most basic element of any logic cell/gate. Going further down, we enter the device physics domain (with electrons, holes, etc.) or the physical design domain (layout). MOSFET can be NMOS or PMOS, depending on the doping regions and biasing. Below shows the textbook structure of NMOS. 
-//add nmos device image
+
+![nmos_device](/images/nmos_device.png)
+
 The gate is an important terminal since it controls the switching (or on and off) action of the MOSFET. The body terminal is usually grounded in NMOS or connected to V<sub>DD</sub> in PMOS, and if not, it can control the threshold voltage of the MOSFET. 
 
 ### Operation of MOSFET
