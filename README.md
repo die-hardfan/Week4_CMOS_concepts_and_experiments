@@ -1,0 +1,112 @@
+# CMOS CONCEPTS AND EXPERIMENTS
+
+## Pre-requisites for lab
+
+1. Install Ngpsice for circuit simulation. The installation guide can be found here (add a link here).
+2. All the netlists/code required for the experiments can be found in this GitHub [repo](https://github.com/kunalg123/sky130CircuitDesignWorkshop/).
+3. Git clone the repo into a folder called `week4_files`.
+   //gitclone image to be added here
+4. The setup for this week's experiments is now complete.
+---
+
+## Why this task matters:
+
+This task deepens your understanding of how transistor-level circuit properties (device 
+physics, sizing, variation) drive the timing behavior that STA analyzes. By working through 
+CMOS design and SPICE simulations (as in the sky130 workshop), you will see the “real” 
+side of what STA approximates. This strengthens your intuition about slack, delay, noise 
+margins, and variation impacts.
+
+---
+
+## Experiment details:
+
+### MOSFET Behavior & Id vs. Vds Characteristics :
+   
+  o Simulate an NMOS device, sweeping (Vds) for different (Vgs), to observe 
+linear and saturation regions 
+
+  o Plot ( Id) vs. (Vds) curves
+   
+### Threshold Voltage Extraction & Velocity Saturation
+   
+  o Sweep (V<sub>GS</sub>) vs. ( I<sub>D</sub> ) and extract threshold ( V<sub>T</sub> ) (e.g., by linear extrapolation) 
+  
+  o Observe effects of velocity saturation in short-channel regime 
+  
+### CMOS Inverter: Voltage Transfer Characteristic (VTC)
+   
+  o Build a CMOS inverter (PMOS + NMOS) 
+  
+  o Sweep input, plot ( V<sub>out</sub> ) vs. ( V<sub>in</sub> ) 
+  
+  o Identify the switching threshold ( V<sub>m</sub> ) (point where ( V<sub>in</sub> = V<sub>out</sub>)) 
+  
+### Transient Behavior: Rise / Fall Delays
+   
+  o Apply a pulse input to the inverter 
+  
+  o Extract rise and fall propagation delays (times at ( V<sub>DD</sub>/2 ) crossing) 
+  
+### Noise Margin / Robustness Analysis
+    
+  o From the VTC plot, determine ( V<sub>IL</sub>, V<sub>IH</sub>, V<sub>OL</sub>, V<sub>OH</sub> ) 
+  
+  o Compute ( NM<sub>L</sub> ) and ( NM<sub>H</sub>  ) 
+  
+### Power-Supply and Device Variation Studies
+    
+  o Vary supply voltage ( V<sub>DD</sub>) and re-plot VTCs to observe how switching 
+  threshold shifts 
+  
+  o Modify transistor sizing (e.g. W/L of PMOS or NMOS) to simulate device 
+  variation, and observe eAects on VTC, noise margins, delays
+
+---
+
+## Deliverables
+
+1. Introduction / Background 
+  Briefly describe purpose of each experiment (e.g. why Id vs Vds, why VTC, etc.)
+
+2. SPICE Netlists / Code 
+  Include the full SPICE netlist(s) used for each component (Id/Vds, VTC, transient, 
+  variation). 
+
+3. Plots & Figures 
+  For each experiment:
+
+  o Graphs (Id vs Vds, Id vs Vgs, VTC, transient waveforms, VTC under variation)
+
+  o Annotated (mark threshold point, switching point, points for noise margin, 
+  etc.)
+
+5. Tabulated Results 
+  Summary table(s) listing:
+
+  o Extracted threshold voltage(s) 
+  
+  o Rise / fall propagation delays 
+  
+  o Noise margins ( NM_L, NM_H ) 
+  
+  o EAect of variation (changes in switching point, noise margins, delay)
+
+7. Observations / Analysis 
+  For each experiment, a short discussion:
+
+  o What you see (e.g. saturation onset, threshold shift) 
+  
+  o Why it happens (device physics) 
+  
+  o How this ties back to STA concepts (e.g. delay models, variation, margin)
+
+9. Conclusions 
+  Higher-level reflections:
+
+  o How transistor-level behavior constrains timing in real circuits 
+  
+  o How variation or supply changes can aAect STA margins & critical paths
+
+11. References / Citations 
+  If you referenced any literature or models (e.g. from sky130 models), list them
