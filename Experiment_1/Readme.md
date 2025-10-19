@@ -115,11 +115,12 @@ setplot dc1
 </details>
 
 In short, the netlist describes the following circuit:
-//add circuit image here
+
+![cmos_inv](/images/cmos_inv.png)
 
 ## Plots and Figures
 
-//add plot image here
+![idvds](/images/idvds_nmos.png)
 
 This plot is given when the command is: `plot -vdd#branch`
 
@@ -235,8 +236,9 @@ This lists all node voltages and branch currents that NGSPICE is tracking for th
 
 <details>
   <summary>Simulation log</summary>
+  
+![idvds_sim](/images/idvds_sim.png)
 
-//add the console pic here
 </details>
 
 Why `plot -vdd#branch` gives the correct graph? 
@@ -245,11 +247,11 @@ Why `plot -vdd#branch` gives the correct graph?
     
 using the command: `plot vdd#branch` gives the below plot:
 
-//add the graph here
+![plot_vdd_branch](/images/plotvddbranchvsvdd.png)
 
 ## Observations and Analysis
 
-//annotated_idvds
+![annotated_idvds](/images/annotated_idvds.png)
 
 In the region within the green box, the behaviour of NMOS is almost linear (resistive) and the point at which saturation is reached keeps shifting right as V<sub>GS</sub> increases (curves move up). In the region within the yellow box, the curve is almost flat, since for long channel MOSFETs, lambda (channel length modulation constant) is almost 0 and thus, NMOS behaves like an ideal current source. The curve parallel to x-axis in the bottom shows the cutoff region graph since Vin < V<sub>T</sub>. 
 
