@@ -32,7 +32,7 @@ margins, and variation impacts.
 - These simulations are also integral in device-level characterization (power, area, delay) of the cell itself.
 - Typically, based on our timing requirement, we select a cell based on its cell-delay table. SPICE simulations are used to obtain these tables.
 
-  //add cell delay table image here
+![cell_delay_table](/images/delay3.png)
 
 
 ---
