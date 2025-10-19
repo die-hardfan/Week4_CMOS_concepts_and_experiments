@@ -3,7 +3,8 @@
 ## Introduction and Background
 
 The CMOS (complementary MOS) inverter is made of 2 MOSFETs, an NMOS and a PMOS. The circuit is given below:
-//add cmos circuit pic here
+
+![cmos_inv](/images/cmos_inv.png)
 
 The voltage transfer characteristic (VTC) curve is derived from the I<sub>D</sub> vs V<sub>DS</sub> graphs for PMOS and NMOS in this configuration. For an independent MOSFET, I<sub>D</sub> vs V<sub>DS</sub> graph typically
 explains it's characteristics. But with a network or circuit of multiple MOSFETs, as in any CMOS circuit, to plot these graphs require internal node voltages which is not visible to users. If the circuits were characterised by 
@@ -76,14 +77,14 @@ The netlist description changes accordingly, and other section remain similar to
 <details>
   <summary>Simulation log</summary>
 
-//add the terminal pic here 
+![vtc_vm_sim](/images/vtc_vm_sim.png)
 
 </details>
 
 
 ## Observations and Analysis
 
-//vtc_plot
+![vtc_plot](/images/vtc_plot.png)
 
 The region of interest is highlighted by the orange box. To find the point where Vin = Vout (the switching threshold Vm), we need to zoom in (for ngspice-45+, right-click and drag results in the slope calculation, so just right click at a point near the curve, a small box is automatically selected and zoomed in - trial and error required). 
 Vm = 0.876 V (it's accurate upto 3 decimal digits). Vm is not exactly equal to Vdd/2 (1.8/2 = 0.9) because Wp = 0.84 um and Wn = 0.36 um, Wp = 2.33*Wn (not exactly 2.5 times), so there's a decrease in accuracy. 
