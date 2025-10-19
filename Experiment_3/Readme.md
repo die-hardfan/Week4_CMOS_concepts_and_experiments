@@ -14,14 +14,16 @@ in terms of it's input and output ports (V<sub>in</sub> and V<sub>out</sub>). Th
 
 Steps to find VTC curve from <sub>D</sub> vs V<sub>DS</sub> graphs for a CMOS inverter. (The same steps is used to find VTC curves for any CMOS circuit)
 Assume the following:
-//add the image for that
+
+![assumption_vtc](/images/assumption_vtc.png)
 
 1. Find <sub>D</sub> vs V<sub>DS</sub> graph for PMOS in this configuration (it's different from the graph when PMOS is analyzed independently, since PMOS is on the top and in a circuit).
 2. The directions of PMOS current and voltage is opposite of NMOS, so the graph obtained will be in the IIIrd quadrant. Vin = Vgsp + Vdd and Vout = Vdsp + Vdd, modify the graph accordingly. 
 3. Find <sub>D</sub> vs V<sub>DS</sub> graph for NMOS (this is easier since the placement of NMOS in the circuit is similar to how it would have been analyzed independently). Vin = Vgsn and Vout = Vdsn, so nothing changes.
 4. Superimpose both the graphs, and mark the intersection points.
 5. Draw the VTC curve using these marked points.
-   //add the pic here
+
+![idvds_vtc](/images/idvds_vtc.png)
 
 VTC curve is most important since it is used to estimate/determine the cell delay. This experiment considers the case where W<sub>p</sub> = 2.5*W<sub>n</sub> approximately. This is the ideal ratio to get an ideal switching threshold, 
 V<sub>m</sub> = Vdd/2. 
@@ -70,7 +72,7 @@ display
 - To view the VTC curve, type the command within ngspice environment: `plot out vs in`
 
 The circuit is shown below:
-//add circuit pic
+![cmos_circuit](/images/cmos_circuit.png)
 
 The netlist description changes accordingly, and other section remain similar to the netlist in Experiment_1. 
 
