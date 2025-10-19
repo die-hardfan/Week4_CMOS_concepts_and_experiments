@@ -75,14 +75,14 @@ The netlist is the same as the one used in Experiment_3 (for VTC curve).
 <details>
   <summary>Simulation log</summary>
 
-//noise_margin_sim
+![noise_margin_sim](/images/noise_margin_sim.png)
 
 </details>
 
 
 ## Observations and Analysis
 
-//noise_margin_plot
+![noise_margin_plot](/images/noise_margin_plot.png)
 
 In a VTC graph, there are 2 points where the slope is found to be -1. Draw a tangent at that point. The upper point is found to be: 0.74, 1.74 (Vin, Vout) and the lower point is found to be: 0.99, 0.09 (Vin, Vout).
 - V<sub>IL</sub> = 0.74 V
