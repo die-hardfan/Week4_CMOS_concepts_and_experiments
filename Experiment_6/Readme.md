@@ -12,7 +12,9 @@ Disadvantages:
 - The transition time increases since charging and discharging requires time (lower Vdd, less current, lower charging/discharging rate for the same capacitance). This impacts the performance of the circuit.
 
 Noise itself is categorized as harmful or not. Consider a glitch for e.g. and the below chart:
-//add the glitch chart here
+
+![glitch_chart](/images/glitch_chart.png)
+
 Glitches that reach beyond V<sub>IL</sub> are dangerous because, the signal may now be interpreted as _x_ (metastable stable - neither valid logic 1 or 0) or higher levels of glitches are interpreted as logic 1. Glitches that make a logic 0 into logic 1 are dangerous because
 this gives the wrong output (but also for power and other reasons). Suppose, in a safety critical system, a logic 1 means enables or disables a function, it could lead to dangerous actions. Of course, the duration of a glitch is as important as it's magnitude. 
 
@@ -67,7 +69,8 @@ plot dc1.out vs in dc2.out vs in dc3.out vs in dc4.out vs in dc5.out vs in dc6.o
 - The plot is automatically opened upon completion of the simulation.
 
 The circuit is shown below:
-//add circuit pic
+
+![cmos_circuit](/images/cmos_circuit.png)
 
 **Smart SPICE simulation:**
 
@@ -114,24 +117,26 @@ Except for these changes, the other parts of the netlist remains same as in Expe
 <details>
   <summary>Simulation log</summary>
 
-//add the terminal pic here 
+![power_supply_var_sim](/images/power_supply_var_sim.png)
 
 </details>
 
 
 ## Observations, Analysis and Tabulated Results
 
-//power_supply_var_vm
+![power_supply_var_vm](/images/power_supply_var_vm.png)
 
 As observed, the switching threshold decreases as Vdd decreases, because the supply voltage is decreasing and ideally, for a CMOS inverter, Vm = Vdd/2. So, as Vdd decreases, Vm decreases (though it's not equal to Vdd/2 since the inverter is not ideal cuz 
 Wp = 2.33xWn, so the CMOS inverter is not ideal). 
 
-//power_supply_var_lower
-//power_supply_var_upper
+![power_supply_var_lower](/images/power_supply_var_lower.png)
+
+![power_supply_var_upper](/images/power_supply_var_upper.png)
 
 These plots show the noise margin trend. 
 
-//add the table here
+![power_supply_var_table](/images/power_supply_var_table.png)
+
 Clearly, the low and high noise margins decrease as Vdd is decreased, which is not a good thing, because the lower noise margins mean lower noise immunity. Cells with lower Vdd, thus are more vulnerable to noise. 
 This is again, a tradeoff between power consumption and noise immunity.
 
@@ -207,7 +212,8 @@ display
 - To view the VTC curve, within ngspice environment, type: `plot out vs in`
 
 The circuit is shown below:
-//add circuit pic
+
+![cmos_circuit](/images/cmos_circuit.png)
 
 Except for these changes, the other parts of the netlist remains same as in Experiment_3 (CMOS inverter).
 
@@ -218,19 +224,24 @@ VTC curve gives switching threshold and noise margins. Transient analysis gives 
 <details>
   <summary>Simulation log</summary>
 
-//add the terminal pic here 
-//
+![trans_strongpmos_sim](/images/trans_strongpmos_sim.png)
+
+![trans_weakpmos_sim](/images/trans_weakpmos_sim.png)
+
+![vtc_strongpmos_sim](/images/vtc_strongpmos_sim.png)
+
+![vtc_weakpmos_sim](/images/vtc_weakpmos_sim.png)
 
 </details>
 
 
 ## Observations, Analysis and Tabulated Results
 
-//vtc
+![compare_pmos](/images/compare_pmos.png)
 
 Clearly, as the width of weak PMOS has a lower switching threshold that strong PMOS. Also, the VTC curve seems to have shifted left. 
 
-//transient analysis
+![compare_pmos_trans](/images/compare_pmos_trans.png)
 
 For a strong PMOS and weak NMOS, the rise delay is low and fall delay is high. Because, wider PMOS, more current, charges the capacitance fast. But NMOS is narrow, less current, so discharge rate is slow, hence fall delay is high. The exact opposite happens for weak PMOS and strong NMOS.
 
