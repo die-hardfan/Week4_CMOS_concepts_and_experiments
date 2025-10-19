@@ -53,23 +53,25 @@ The only points of change are:
 - `XM1 Vdd n1 0 0 sky130_fd_pr__nfet_01v8 w=0.39 l=0.15` - the width and length of the channel are now submicron level
 - `.dc Vin 0 1.8 0.1 ` - dc sweep is done for V<sub>GS</sub> only, so the plot obtained will be I<sub>D</sub> vs V<sub>GS</sub> when the command `plot -vdd#branch` is used (cuz there's no other voltage values to plot against).
 
-The experment is repeated for long channel NMOS with `w=5 l=2`. Note that, the aspect ratio (W/L) remains almost same, so the only change is the dimensions themselves. 
+The experiment is repeated for long channel NMOS with `w=5 l=2`. Note that the aspect ratio (W/L) remains almost the same, so the only change is the dimensions themselves. 
 
 <details>
   <summary>Simulation log</summary>
 
-//add the console pic here -short
-//long channel pic
+![vt_sim](/images/vt_sim.png)
+
+![vt_long_sim](/images/vt_long_sim.png)
+
 </details>
 
 
 ## Observations and Analysis
 
-//annotated vt_graph
+![vt_graph](/images/vt_graph.png)
 
 The threshold voltage is found as the V<sub>GS</sub> value when I<sub>D</sub> starts increasing non-linearly (not exponential, that is for a diode). Draw a tangent at that point, extend it to intersect with the x-axis (V<sub>GS</sub> axis), and we get an approximate V<sub>Th</sub> value as 0.7 V. 
 
-//vt_long_channel
+![vt_long_channel](/images/vt_long_channel.png)
 
 Clearly, the threshold voltage has increased as the dimension decreased. Long channel NMOS V<sub>Th</sub> = 0.703 V and short channel NMOS V<sub>Th</sub> = 0.727 V. The change is not much, but it's present. 
 
@@ -176,18 +178,18 @@ The netlist describes the same circuit as shown in Experiment_1. The circuit is 
 <details>
   <summary>Simulation log</summary>
 
-//add the console pic here for velo_sat_graph
+![velo_sat_sim](/images/velosat_sim.png)
 
 </details>
 
 
 ## Observations and Analysis
 
-//long_short_vt
+![short_long_vt](/images/short_long_vt.png)
 
 Clearly in the I<sub>D</sub> vs V<sub>GS</sub> plot, the increase in current is more linear in short channel NMOS but non-linear (or quadratic) in long channel NMOS. This is because, due to velocity saturation effect, the NMOS saturates fast and current remains almost constant. 
 
-//long_short_idvds
+![short_long_idvds](/images/short_long_idvds.png)
 
 Similarly, in the I<sub>D</sub> vs V<sub>DS</sub> plot, the effect of channel length modulation (during saturation, Id is still dependent on Vds) is more prominent in long channel NMOS. In the short channel NMOS, in the saturation region, current is almost constant. Also, the maximum current reached (the maximum Id value for topmost curve - maximum Vgs) in long channel NMOS is more that in short channel NMOS, though according to the Id current equation, Id is inversely proportional to L (length of the channel). This difference is due to the velocity saturation effect, which limits the current value as channel length decreases, submicron. 
 
