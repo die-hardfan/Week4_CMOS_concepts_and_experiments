@@ -46,7 +46,8 @@ setplot dc1
 - To view the I<sub>D</sub> vs V<sub>DS</sub> plot, type the command within ngspice environment: `plot -vdd#branch`
 
 The netlist describes the same circuit as shown in Experiment_1. The circuit is shown below:
-//add circuit pic
+
+![nmos_circuit](/images/nmos_circuit.png)
 
 The only points of change are: 
 
@@ -87,7 +88,14 @@ From the I<sub>D</sub> vs V<sub>GS</sub> graph of the short-channel NMOS device,
 
 In submicron channel length (short channel) MOSFETs, there are 4 regions of operation, unlike 3 in long channel MOSFETs. The new addition is called **Velocity Saturation Region**. To incorporate this into the MOSFET model, the previous I<sub>D</sub> equations cannot be used. Hence a new equation is used, as shown below: 
 
-//id eqn for short channel mos
+```text
+Id = kn. [(Vgt.Vmin)-Vmin^2/2].[1+λVds]
+
+where
+Vmin = min(Vgt, Vds, Vdsat)
+Vdsat = Vd at which mosfet goes to saturation
+Vgt = Vgs - Vt
+```
 
 The reason for this effect requires understanding of device physics, which is beyond the scope of this experiment. In short, due to this effect, the maximum achievable I<sub>D</sub> is decreased, relative to long channel NMOS, for a constant V<sub>DS</sub>. The MOSFET also behaves more linearly during saturation. 
 
@@ -173,7 +181,8 @@ For both the graphs, follow the given commands for simulation:
 - To view the I<sub>D</sub> vs V<sub>DS</sub> plot, type the command within ngspice environment: `plot -vdd#branch`
 
 The netlist describes the same circuit as shown in Experiment_1. The circuit is shown below:
-//add circuit pic
+
+![nmos_circuit](/images/nmos_circuit.png)
 
 <details>
   <summary>Simulation log</summary>
