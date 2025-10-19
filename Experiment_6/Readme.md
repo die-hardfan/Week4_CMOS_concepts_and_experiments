@@ -213,10 +213,13 @@ Except for these changes, the other parts of the netlist remains same as in Expe
 
 Repeat the experiment with interchanged Wp and Wn values. 
 
+VTC curve gives switching threshold and noise margins. Transient analysis gives the delays (refer Experiment_4 netlist for that).
+
 <details>
   <summary>Simulation log</summary>
 
 //add the terminal pic here 
+//
 
 </details>
 
@@ -227,17 +230,13 @@ Repeat the experiment with interchanged Wp and Wn values.
 
 Clearly, as the width of weak PMOS has a lower switching threshold that strong PMOS. Also, the VTC curve seems to have shifted left. 
 
+//transient analysis
 
+For a strong PMOS and weak NMOS, the rise delay is low and fall delay is high. Because, wider PMOS, more current, charges the capacitance fast. But NMOS is narrow, less current, so discharge rate is slow, hence fall delay is high. The exact opposite happens for weak PMOS and strong NMOS.
 
-These plots show the noise margin trend. 
-
-//add the table here
-Clearly, the low and high noise margins decrease as Vdd is decreased, which is not a good thing, because the lower noise margins mean lower noise immunity. Cells with lower Vdd, thus are more vulnerable to noise. But the overall function of the circuit remains same. 
-This is again, a tradeoff between power consumption and noise immunity.
 
 
 ## Conclusions
-The experiment demonstrated how scaling the supply voltage (VDD) affects the CMOS inverter’s performance. As VDD decreases from 1.8 V to 0.8 V, the switching threshold voltage (Vm) reduces proportionally, and both low and high noise margins decrease, indicating reduced noise immunity. This shows that lower supply voltages, while reducing power consumption and energy per switching event, make the inverter more susceptible to noise. The study 
-highlights the trade-off between low-power operation and robustness, emphasizing that designers must carefully select VDD to balance speed, noise tolerance, and energy efficiency in CMOS circuits.
+This experiment demonstrated how variations in device dimensions during fabrication impact the electrical behavior of a CMOS inverter. By altering the transistor widths (Wp and Wn), we observed shifts in the VTC curve, switching threshold, and propagation delays. When PMOS is strong (wide) and NMOS is weak (narrow), the switching threshold shifts lower, rise delay decreases, and fall delay increases. Conversely, when NMOS is strong and PMOS is weak, the switching threshold shifts higher, rise delay increases, and fall delay decreases. These results show that device mismatches cause asymmetry in inverter performance, affecting both speed and noise margins. Hence, maintaining precise control over fabrication parameters such as transistor width, length, and oxide thickness is essential for achieving consistent and predictable circuit behavior across all chips.
 
 
