@@ -23,7 +23,8 @@ Noise generally includes glitches, cross-talk, power-supply variations, jitter, 
 since they are exposed to surrounding components and wires carrying other signals, compared to noise induced within the circuit. This is especially so with CMOS circuits. So, the margin for input low must be higher than output low and margin for input high must be lower than output high.
 
 Typically: V<sub>DD</sub> >= V<sub>OH</sub> > V<sub>IH</sub> > V<sub>IL</sub> > V<sub>OH</sub> >= 0, as shown in the below pic: 
-//add noise margin pic here.
+
+![noise_margin](/images/noise_margin.png)
 
 This experiment uses VTC graph of a CMOS inverter to determine the noises margins.
 
